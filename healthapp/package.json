@@ -8,11 +8,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc",
     "bmiCalculator": "tsc && node bmiCalculator.ts",
-    "excercise": "tsc && node exerciseCalculator.ts"
+    "exercise": "tsc && node exerciseCalculator.ts"
   },
   "author": "Zhengxu Sun",
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^25.9.1",
     "typescript": "^6.0.3"
   }
 }

@@ -1,3 +1,6 @@
+import { win32 } from "path/win32";
+import { isInt32Array } from "util/types";
+
 interface ExerciseResult {
   periodLength: number;
   trainingDays: number;
@@ -35,4 +38,25 @@ const calculateExercises = (
   };
 };
 
-console.log(calculateExercises([3, 0, 2, 4.5, 0, 3, 1], 2));
+//console.log(calculateExercises([3, 0, 2, 4.5, 0, 3, 1], 2));
+
+try {
+  if (process.argv.length < 4) {
+    throw new Error("Usage:npm  run exercise <target> <daily hours...>");
+  }
+  const target = Number(process.argv[2]);
+  const dailyhours = process.argv.slice(3).map(Number);
+
+  if ([target, ...dailyhours].some(isNaN)) {
+    throw new Error("all arguments must be numbers");
+  }
+  console.log(calculateExercises(dailyhours, target));
+} catch (error: unknown) {
+  let errorMessage = "Something went wrong";
+
+  if (error instanceof Error) {
+    errorMessage += ": " + error.message;
+  }
+
+  console.log(errorMessage);
+}
