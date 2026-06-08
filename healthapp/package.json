@@ -10,7 +10,8 @@
     "bmiCalculator": "tsc && node bmiCalculator.ts",
     "exercise": "tsc && node exerciseCalculator.ts",
     "start": "node index.ts",
-    "dev": "concurrently \"tsc --watch\" \"node --watch index.ts\""
+    "dev": "concurrently \"tsc --watch\" \"node --watch index.ts\"",
+    "lint": "eslint ."
   },
   "author": "Zhengxu Sun",
   "license": "MIT",
