@@ -1,4 +1,4 @@
-type Operation = 'add' | 'multiply' | 'divide';
+export type Operation = 'add' | 'multiply' | 'divide';
 const calculate = (a: number, b: number, operation: Operation): number =>{
     switch (operation) {
         case 'add':
@@ -22,5 +22,4 @@ try{
   }
   console.log(errorMessage);
 }
-export { calculate
-}
+export { calculate }

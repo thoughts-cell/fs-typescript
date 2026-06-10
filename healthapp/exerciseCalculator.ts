@@ -1,5 +1,4 @@
-import { win32 } from "path/win32";
-import { isInt32Array } from "util/types";
+
 
 interface ExerciseResult {
   periodLength: number;
@@ -10,12 +9,12 @@ interface ExerciseResult {
   target: number;
   average: number;
 }
-const calculateExercises = (
+export const calculateExercises = (
   dailyhours: number[],
   target: number,
 ): ExerciseResult => {
   const periodLength = dailyhours.length;
-  const trainingDays = dailyhours.filter((h) => h > 0).length;
+  const trainingDays = dailyhours.filter((h)=> h >0).length;
 
   const sum = dailyhours.reduce((acc, cur) => acc + cur, 0);
   const average = sum / periodLength;
@@ -39,7 +38,7 @@ const calculateExercises = (
 };
 
 //console.log(calculateExercises([3, 0, 2, 4.5, 0, 3, 1], 2));
-
+if (process.argv[1] === import.meta.filename) {
 try {
   if (process.argv.length < 4) {
     throw new Error("Usage:npm  run exercise <target> <daily hours...>");
@@ -59,4 +58,5 @@ try {
   }
 
   console.log(errorMessage);
+}
 }
