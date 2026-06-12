@@ -1,5 +1,5 @@
 export type Operation = 'add' | 'multiply' | 'divide';
-const calculate = (a: number, b: number, operation: Operation): number =>{
+export const calculate = (a: number, b: number, operation: Operation): number =>{
     switch (operation) {
         case 'add':
             return a + b;  
@@ -16,10 +16,9 @@ try{
 
  console.log(calculate(1, 5 , 'divide'));
 } catch (error: unknown) {
-  let errorMessage = 'Something went wrong: '
+  let errorMessage = 'Something went wrong: ';
   if (error instanceof Error) {
     errorMessage += error.message;
   }
   console.log(errorMessage);
 }
-export { calculate }
