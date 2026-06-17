@@ -1,5 +1,17 @@
 import { z } from 'zod';
 
+
+// export type Weather = 'sunny' | 'rainy' | 'cloudy' | 'windy' | 'stormy';
+
+// export type Visibility = 'great' | 'good' | 'ok' | 'poor';
+// export interface NewDiaryEntry {
+//   id: number;
+//   date: string;
+//   weather: Weather;
+//   visibility: Visibility;
+//   comment: string;
+// }
+
 export const Weather = {
   Sunny: 'sunny',
   Rainy: 'rainy',

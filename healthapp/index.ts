@@ -7,7 +7,7 @@ app.use(express.json());
 
 
 app.post("/calculate", (req, res) => {
- // eslint-disable-next-line @typescript-eslint/no-explicit-any
+ // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const { value1, value2, op } = req.body;
   const result = calculate(Number(value1), Number(value2), op as Operation);
   return res.send({ result });
@@ -36,7 +36,7 @@ app.get("/bmi", (req, res) => {
 });
 
 app.post("/exercises", (req, res) => {
-// eslint-disable-next-line @typescript-eslint/no-explicit-any  
+// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const { daily_exercises, target } = req.body;
   if (!daily_exercises || !target) {
     res.status(400).json({

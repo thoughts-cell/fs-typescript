@@ -10,7 +10,7 @@ export const calculate = (a: number, b: number, operation: Operation): number =>
         default:
             throw new Error('Invalid operation，Operation is not multiply, add or divide!');
     }
-}
+};
 
 try{
 
