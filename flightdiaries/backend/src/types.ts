@@ -1,16 +1,26 @@
 import { z } from 'zod';
 
 
-// export type Weather = 'sunny' | 'rainy' | 'cloudy' | 'windy' | 'stormy';
+export type Weather = 'sunny' | 'rainy' | 'cloudy' | 'windy' | 'stormy';
 
-// export type Visibility = 'great' | 'good' | 'ok' | 'poor';
-// export interface NewDiaryEntry {
-//   id: number;
-//   date: string;
-//   weather: Weather;
-//   visibility: Visibility;
-//   comment: string;
-// }
+export type Visibility = 'great' | 'good' | 'ok' | 'poor';
+
+// export  interface DiaryEntry {
+//    id: number;
+//     date: string;
+//     weather: Weather;
+//     visibility: Visibility;
+//     comment?: string;
+//   }
+
+
+export interface NewDiaryEntry {
+ 
+  date: string;
+  weather: Weather;
+  visibility: Visibility;
+  comment: string;
+}
 
 export const Weather = {
   Sunny: 'sunny',
@@ -20,25 +30,25 @@ export const Weather = {
   Windy: 'windy',
 } as const;
 
-export type Weather = typeof Weather[keyof typeof Weather];
+// export type Weather = typeof Weather[keyof typeof Weather];
 
-export const Visibility = {
-  Great: 'great',
-  Good: 'good',
-  Ok: 'ok',
-  Poor: 'poor',
-} as const;
+// export const Visibility = {
+//   Great: 'great',
+//   Good: 'good',
+//   Ok: 'ok',
+//   Poor: 'poor',
+// } as const;
 
-export type Visibility = typeof Visibility[keyof typeof Visibility];
+// export type Visibility = typeof Visibility[keyof typeof Visibility];
 
-export const NewEntrySchema = z.object({
-  weather: z.enum(Weather),
-  visibility: z.enum(Visibility),
-  date: z.iso.date(),
-  comment: z.string().optional()
-});
+// export const NewEntrySchema = z.object({
+//   weather: z.enum(Weather),
+//   visibility: z.enum(Visibility),
+//   date: z.iso.date(),
+//   comment: z.string().optional()
+// });
 
-export type NewDiaryEntry = z.infer<typeof NewEntrySchema>; 
+//export type NewDiaryEntry = z.infer<typeof NewEntrySchema>; 
 
 export interface DiaryEntry extends NewDiaryEntry {
   id: number;
